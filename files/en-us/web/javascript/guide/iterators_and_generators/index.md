@@ -233,3 +233,18 @@ If the exception is not caught from within the generator, it will propagate up t
 Generators have a {{jsxref("Global_Objects/Generator/return","return(value)")}} method that returns the given value and finishes the generator itself.
 
 {{PreviousNext("Web/JavaScript/Guide/Typed_arrays", "Web/JavaScript/Guide/Meta_programming")}}
+{"a":1,"b":1,"c":81,"d":95,"e":{"a":" ""b":89,"c":90,"d":[",..
+```js
+function* fibonacci() {
+  let current = 0;
+  let next = 1;
+  while (true) {
+    const reset = yield current;
+    [current, next] = [next, next + current];
+    if (reset) {
+      current = 0;
+      next = 1;
+    }
+  }
+}
+
